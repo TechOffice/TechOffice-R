@@ -43,13 +43,15 @@ for (row in html_nodes(hkexSecurityListTable, "tr") ){
 			}
 			netProfitCcy = substr(netProfit, 1, 3);
 			netProfitValueStr = substr(netProfit, 5, stri_length(netProfit));
+			profitValue = gsub(",", "", profitValueStr);
 			print(paste(stockCode, stockName, isProfit, netProfitCcy, netProfitValueStr, sep=" ") );
 			stockData = data.frame(
 				code=c(stockCode),
 				name=c(stockName),
 				isProfit=c(isProfit),
 				ccy=c(netProfitCcy),
-				profitValueStr=c(netProfitValueStr)
+				profitValueStr=c(netProfitValueStr),
+				profitValue=c(profitValue)
 			);
 			stockDataList <- rbind(stockDataList,stockData)
 		}
@@ -58,4 +60,5 @@ for (row in html_nodes(hkexSecurityListTable, "tr") ){
 }
 
 # print the stock net profit sorted by decreasing order
-stockDataList[order(as.numeric(stockDataList$profitValueStr), decreasing = TRUE), ]
+profitStockDataList = stockDataList[stockDataList$isProfit == TRUE, ]
+profitStockDataList[order(as.numeric(profitStockDataList$profitValue), decreasing = TRUE), ]
