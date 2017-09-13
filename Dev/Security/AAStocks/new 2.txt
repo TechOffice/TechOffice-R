@@ -1,7 +1,0 @@
-rows = html_nodes(table, "tr");
-for (i in 1:length(rows)){
-	row = rows[i];
-	cols = html_nodes(row, "td");
-	firstCol = cols[1];
-	print(html_text(firstCol));
-}
