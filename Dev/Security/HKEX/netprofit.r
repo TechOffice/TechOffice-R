@@ -19,9 +19,7 @@ hkexSecurityListTable = html_nodes(hkexSecurityListHtml, "table")[2];
 
 #
 stockDataList = data.frame(
-	code=character(),
-	name=character(),
-	profit=character()
+
 );
 
 # For each row of the table

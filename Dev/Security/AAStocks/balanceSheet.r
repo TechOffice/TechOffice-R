@@ -3,36 +3,7 @@ library(RSelenium)
 library(rvest)
 library(XML)
 
-balanceSheetDataList = data.frame(
-	stockCode					= character(),
-	closingDate                 = character(),
-	nonCurrentAssets            = character(),
-	fixedAssets                 = character(),
-	investments                 = character(),
-	otherAssets                 = character(),
-	currentAssets               = character(),
-	cashOnHand                  = character(),
-	receivables                 = character(),
-	inventory                   = character(),
-	otherCurrentAssets          = character(),
-	totalAssets                 = character(),
-	nonCurrentLiabilities       = character(),
-	longTermDebt                = character(),
-	otherLongTermLiabilities    = character(),
-	currentLiabilities          = character(),
-	payables                    = character(),
-	taxation                    = character(),
-	shortTermDebt               = character(),
-	otherCurrentLiabilities     = character(),
-	totalLiabilities            = character(),
-	ownersEquity                = character(),
-	shareCapital                = character(),
-	reserves                    = character(),
-	perpetualCapitalSecurities  = character(),
-	minorityInterests           = character(),
-	totalEquity                 = character(),
-	unit                        = character()
-);
+balanceSheetDataList = data.frame();
 
 pJs = phantom();
 page = remoteDriver(browserName = 'phantomjs')
