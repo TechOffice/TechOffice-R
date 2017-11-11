@@ -17,7 +17,7 @@ page$navigate(paste(domain, index, sep=""));
 html = read_html(page$getPageSource()[[1]]);
 raceButtonAnchors = html_nodes(html, "td.raceButton a");
 print(paste("There are ", length(raceButtonAnchors), "races"));
-for (raceButtonAnchor in raceButtonAnchors){
+for (raceButtonAnchor in c(raceButtonAnchors[1])){
 	url = html_attr(raceButtonAnchor, "href");
 	print(url);
 	page$navigate(paste(domain, url, sep=""));
@@ -34,10 +34,13 @@ for (raceButtonAnchor in raceButtonAnchors){
 				draw = html_text(horseCols[5]);
 				weight = html_text(horseCols[6]);
 				jockey = html_text(horseCols[7]);
+				jockey = trimws(gsub(intToUtf8(160), "", gsub("\n", "", jockey)));
 				trainer = html_text(horseCols[8]);
 				win = html_text(horseCols[9]);
 				place = html_text(horseCols[10]);
-				print(horseName);
+				if (!is.null(jockey) && jockey != ''){
+					print(jockey);
+				}
 			}
 		}
 	}
