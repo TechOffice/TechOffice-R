@@ -1,3 +1,7 @@
+# This program is retrieve 
+# 	today race data (horseNo, horseName, draw, weight, jockey, trainer, win, place)
+# 	from http://bet.hkjc.com/racing/index.aspx
+
 library(stringi)
 library(RSelenium)
 library(rvest)
