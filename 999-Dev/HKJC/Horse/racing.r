@@ -36,10 +36,11 @@ for (raceButtonAnchor in c(raceButtonAnchors[1])){
 				jockey = html_text(horseCols[7]);
 				jockey = trimws(gsub(intToUtf8(160), "", gsub("\n", "", jockey)));
 				trainer = html_text(horseCols[8]);
-				win = html_text(horseCols[9]);
-				place = html_text(horseCols[10]);
+				bodyWeight = html_text(horseCols[9]);
+				rtg = html_text(horseCols[10]);
+				lastSixRuns = html_text(horseCols[12]);
 				if (!is.null(jockey) && jockey != ''){
-					print(jockey);
+					print(lastSixRuns);
 				}
 			}
 		}
